@@ -12,15 +12,13 @@ cd $GOPATH/src/github.com/skynetservices/skydns
 
 go get .
 
-go build -v -a -tags netgo --ldflags "-extldflags '-static'"
-
-mkdir -p $OUT
-cp $GOPATH/bin/skydns $OUT/
+mkdir -p $OUT/bin
+go build -o $OUT/bin/skydns -v -a -tags netgo --ldflags "-extldflags '-static'"
 
 cat <<EOF > $OUT/Dockerfile
 FROM scratch
 
-ADD skydns /bin/skydns
+ADD bin /bin
 
 EXPOSE 53 53/udp
 
