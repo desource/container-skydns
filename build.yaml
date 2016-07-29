@@ -9,7 +9,7 @@ image_resource:
 inputs:
   - name: skydns-git
     path: gopath/src/github.com/skynetservices/skydns
-  - name: skydns-container-git
+  - name: skydns-container-src
 
 outputs:
   - name: skydns-build
