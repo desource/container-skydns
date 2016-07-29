@@ -10,10 +10,9 @@ inputs:
   - name: skydns-git
     path: gopath/src/github.com/skynetservices/skydns
   - name: skydns-container-git
-    path: build
 
 outputs:
   - name: skydns-build
   
 run:
-  path: ./build/build.sh
+  path: ./skydns-container-src/build.sh
