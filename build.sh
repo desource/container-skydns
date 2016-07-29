@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 set -eux
 
+apk add --no-cache git
+
 export GOPATH=$PWD/gopath
 export PATH=$GOPATH/bin:$PATH
 
 OUT=$PWD/skydns-build
-
 
 cd $GOPATH/src/github.com/skynetservices/skydns
 
