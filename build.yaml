@@ -1,0 +1,19 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: golang:1.6-alpine
+
+inputs:
+  - name: skydns-git
+    path: gopath/src/github.com/skynetservices/skydns
+  - name: skydns-container-git
+    path: build
+
+outputs:
+  - name: skydns-build
+  
+run:
+  path: ./build/build.sh
