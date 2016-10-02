@@ -9,7 +9,7 @@ run:
 inputs:
   - name: container
   - name: src
-    path: gopath/src/github.com/skynetservices/skydns
+    path: go/src/github.com/skynetservices/skydns
 
 outputs:
   - name: out
