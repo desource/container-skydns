@@ -1,19 +1,15 @@
----
 platform: linux
-
 image_resource:
   type: docker-image
-  source:
-    repository: golang
-    tag: 1.7-alpine
+  source: {repository: golang, tag: 1.7-alpine }
 
+run:
+  path: ./container/build.sh
+  
 inputs:
-  - name: skydns-container-src
-  - name: skydns-git
+  - name: container
+  - name: src
     path: gopath/src/github.com/skynetservices/skydns
 
 outputs:
-  - name: skydns-build
-  
-run:
-  path: ./skydns-container-src/build.sh
+  - name: out
