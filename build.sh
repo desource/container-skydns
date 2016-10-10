@@ -10,16 +10,16 @@ local out=$PWD/out
 
 _init() {
     apk add --no-cache git
-    
-  cat <<EOF > ${out}/version
-${1}
-EOF
 }
 
 _build() {
   cd ${src}
   go get .
   go build -o ${out}/bin/skydns -v -a -tags netgo --ldflags "-extldflags '-static'"
+    
+  cat <<EOF > ${out}/version
+${1}
+EOF
 }
 
 # _dockerfile "version"
@@ -36,6 +36,6 @@ ENTRYPOINT [ "/bin/skydns" ]
 EOF
 }
 
-_init $(git -C ${src} describe --tags --dirty)
-_build
+_init 
+_build $(git -C ${src} describe --tags --dirty)
 _dockerfile
